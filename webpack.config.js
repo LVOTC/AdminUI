@@ -13,16 +13,25 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           'css-loader',
-          'sass-loader',
+          'sass-loader'
         ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'assets/images/[name].[ext]',
+        },
+      }
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-        filename: 'app.css',
+      filename: 'assets/styles/app.css',
     }),
   ]
 };

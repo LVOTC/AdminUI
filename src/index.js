@@ -6,3 +6,11 @@ import './assets/images/portrait1.jpg';
 import './assets/images/search-24px.svg';
 import './index.hbs';
 import './about.hbs';
+
+
+document.querySelector('[data-toggle]').addEventListener('click', function (event) {
+    let element = event.target.dataset.toggle;
+    document.querySelectorAll('[data-' + element + ']').forEach(function (el) {
+        el.classList.toggle(element + '-hide');
+    })
+});
